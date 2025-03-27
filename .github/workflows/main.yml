@@ -23,6 +23,7 @@ jobs:
         #| (py) linea me permite colocar tooodos los comandos que quiera
         # Nececitamos decir a cual carpeta queremos instalar la cosa
         run: |
+          cd ejercicioTrackDevops1-main\EjercicioTrackDevops1
           pip install -r requirements.txt
       - name: Ejecutar pruebas
           #prueba unitaria de forma automatica
