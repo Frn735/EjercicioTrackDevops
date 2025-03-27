@@ -1,0 +1,33 @@
+#*Esto es para que haga todo, que instale django y haga todo
+name: django-web
+on:
+  push:
+       branches:
+          - main
+jobs:
+  build:
+   #estamos diciendo que esto se ejecutará en ubuntu
+    runs-on: ubuntu-latest
+    #Segun requerimientos debemoscomprobar que repositorio se obtuvo correctamente
+    #Ojo esto es muy estrcto con formato
+    steps:
+      - name: Coprobar repositorios
+        uses: actions/checkout@v2 #Vemos si repositorio está disponible y si si se trae todo
+        #para usar ubuntu necesitamos confirgurar bien python
+      - name: Configurar Python
+        uses: actions/setup-python@v2 #Esto me permite confirgurar con version mensionada abajo
+        with:
+          python-version: 3.13
+      - name: Instalar dependencias
+        #instala las dependencias dentro del ubuntu
+        #| (py) linea me permite colocar tooodos los comandos que quiera
+        # Nececitamos decir a cual carpeta queremos instalar la cosa
+        run: | 
+          cd EjercicioTrackDevops1
+          pip install -r requirements.txt
+      - name: Ejecutar pruebas
+          #prueba unitaria de forma automatica
+        run: |
+          cd EjercicioTrackDevops1
+          python manage.py test
+
