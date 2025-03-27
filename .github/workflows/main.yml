@@ -28,6 +28,6 @@ jobs:
       - name: Ejecutar pruebas
           #prueba unitaria de forma automatica
         run: |
-          cd EjercicioTrackDevops1
+          cd ejercicioTrackDevops1-main\EjercicioTrackDevops1
           python manage.py test
 
